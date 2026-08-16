@@ -40,6 +40,8 @@ body {
     margin-left: 20px;
     margin-bottom: 10px;
 }
+
+
 #userArea{
     background-color: transparent;
     width: 320px;
@@ -115,6 +117,18 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-.notFavorite{
+.Favorited{
+    background-image: url("./svg/star_yellow.svg");
+}
+.notFavorited{
     background-image: url("./svg/star_grey.svg");
 }
+
+#favoriteTitle{
+    margin-left: 20px;
+    color: rgb(137, 135, 130);
+    font-size: small;
+}
+
+
+

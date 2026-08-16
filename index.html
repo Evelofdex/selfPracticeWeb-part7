@@ -2,16 +2,17 @@
 <html>
     <head>
         <title> practice 7</title>
-        <script src="script.js""></script>
+        <script src="script.js" defer></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <main>
             <div id="mainArea"> 
                 <p id="title">team directory</p>
-                <p id="subtitle">x member loaded </p>
+                <p id="subtitle"> <span id="memberCounter"> 0 </span> member loaded </p>
                 <input type="text" id="searchBar" placeholder="Search by name">
                 <div id="userArea">
+
                     <!-- expected result bagian user -->
                     <div id="users"> 
                         <div id="profilePict">
@@ -21,11 +22,12 @@
                             <p id="nameUser">Someone Example</p>
                             <p id="emailUser">Someone@example.com</p>
                         </div>
-                        <div id="starArea" class="notFavorite"> </div>
+                        <div id="starArea" class="Favorited"> </div>
                     </div>
                     
                 
                 </div>
+                <p id="favoriteTitle"> <span id="favoritedCount"> 0 </span> favorited</p>
             </div>
         </main>
     </body>
