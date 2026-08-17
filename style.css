@@ -32,6 +32,7 @@ body {
 }
 #searchBar{
     background-color: rgb(26, 26, 25);
+    color: white;
     border-radius: 10px;
     width: 300px;
     height: 30px;
@@ -39,6 +40,8 @@ body {
     margin-top: 0px;
     margin-left: 20px;
     margin-bottom: 10px;
+
+    padding-left: 10px;
 }
 
 
@@ -57,7 +60,7 @@ body {
     scrollbar-width: thin;
     scrollbar-color: grey transparent;
 }
-#users{
+.users{
     background-color: rgb(26, 26, 25);
     width: 300px;
     height: 60px;
@@ -69,7 +72,7 @@ body {
     align-items: center;
     gap: 10px;
 }
-#profilePict{
+.profilePict{
     background-color: rgb(11, 31, 64);
     border-radius: 20px;
     width: 40px;
@@ -86,7 +89,7 @@ body {
     font-weight: 400;
     color: dodgerblue;
 }
-#nameArea{
+.nameArea{
     background-color: transparent;
     width: 200px;
     height: 40px;
@@ -97,18 +100,18 @@ body {
     justify-items: center;
     
 }
-#nameUser{
+.nameUser{
     color: white;
     margin-top: 1px;
     margin-bottom: 0px;
     font-size: 16px;
 }
-#emailUser{
+.emailUser{
     font-size: 12px;
     color: rgb(137, 135, 130);
     margin-top: 0px;
 }
-#starArea{
+.starArea{
     background-color: transparent;
     width: 20px;
     height: 40px;
@@ -117,7 +120,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-.Favorited{
+.favorited{
     background-image: url("./svg/star_yellow.svg");
 }
 .notFavorited{

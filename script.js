@@ -5,7 +5,9 @@ let subtitle = document.getElementById("subtitle");
 let memberCounter = document.getElementById("memberCounter");
 let userArea = document.getElementById("userArea");
 let favoriteCount = document.getElementById("favoriteCount");
+let searchBar = document.getElementById("searchBar");
 
+// first Load
 window.addEventListener("load", async function(){
     await getData();
 })
@@ -19,26 +21,38 @@ async function getData(){
         console.log(allData);
         
         renderData(allData);
+        memberCounter.innerText = allData.length;
     } catch (error){ 
         memberCounter.innerText = "";
         subtitle.innerText = "Cant load any Data, try reloading";
     }
 }
 
+//search bar
+searchBar.addEventListener("input", function(){
+    let nameInput = searchBar.value.toLowerCase()
+    let filteredData = allData.filter(function(data){
+        return data.name.toLowerCase().includes(nameInput);
+    });
+
+    renderData(filteredData);
+})
+
 function renderData(data){
-    for (let i = 0; i < allData.length; i++){
+    userArea.innerHTML = "";
+    for (let i = 0; i < data.length; i++){
         //base
         let newDiv_User = document.createElement("div");
-        newDiv_User.id = "users";
+        newDiv_User.className = "users";
         userArea.appendChild(newDiv_User);
         //profile pict
         let newDiv_ProfilePict = document.createElement("div");
-        newDiv_ProfilePict.id = "profilePict";
+        newDiv_ProfilePict.className = "profilePict";
         newDiv_User.appendChild(newDiv_ProfilePict);
         
         let newP_PictName = document.createElement("p");
         let spaceFound = false;
-        newP_PictName.id = "pictName";
+        newP_PictName.className = "pictName";
         //below for works to check if theres any space inside the name, otherwise just use the first letter of the name
         for (let k = 0; k < data[i].name.length; k++){
             if(data[i].name.charAt(k) == " "){
@@ -51,26 +65,37 @@ function renderData(data){
         newDiv_ProfilePict.appendChild(newP_PictName);
         // name & mail
         let newDiv_NameArea = document.createElement("div");
-        newDiv_NameArea.id = "nameArea";
+        newDiv_NameArea.className = "nameArea";
         newDiv_User.appendChild(newDiv_NameArea);
     
         let newP_NameUser = document.createElement("p");
-        newP_NameUser.id = "nameUser";
+        newP_NameUser.className = "nameUser";
         newP_NameUser.innerText = data[i].name;
         newDiv_NameArea.appendChild(newP_NameUser);
     
         let newP_EmailUser = document.createElement("p");
-        newP_EmailUser.id = "emailUser";
+        newP_EmailUser.className = "emailUser";
         newP_EmailUser.innerHTML = data[i].email;
         newDiv_NameArea.appendChild(newP_EmailUser);
         //star area
         let newDiv_StarArea = document.createElement("div");
-        newDiv_StarArea.id = "starArea";
-        newDiv_StarArea.className = "notFavorited"
+        newDiv_StarArea.className = "starArea";
+        newDiv_StarArea.classList.add("notFavorited");
+        let isFavorited = false;
+        newDiv_StarArea.addEventListener("click", function(){
+            if (!isFavorited){
+                isFavorited = true;
+                favoriteCount.innerText = Number(favoriteCount.innerText) + 1;
+            } else {
+                isFavorited = false;
+                favoriteCount.innerText = Number(favoriteCount.innerText) - 1;
+            }
+            newDiv_StarArea.classList.toggle("notFavorited");
+            newDiv_StarArea.classList.toggle("favorited");
+        })
         newDiv_User.appendChild(newDiv_StarArea);
     }
 }
-
 
 
 
