@@ -1,3 +1,3 @@
 ### Screenshot
 
-![screenshot]("./Screenshot 2026-07-31 151829.png")
+![screenshot](./Screenshot%202026-07-31%20151829.png)
